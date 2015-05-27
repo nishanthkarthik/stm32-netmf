@@ -1,7 +1,10 @@
 #include <stm32f4xx_hal.h>
 #include <stdint-gcc.h>
+#include <stdio.h>
 
 #ifdef __cplusplus
+#include "stm32f4xx_hal_conf.h"
+
 extern "C"
 #endif
 void SysTick_Handler(void)
@@ -27,8 +30,8 @@ int main(void)
 	for (;;)
 	{
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
-		HAL_Delay(500);
+		HAL_Delay(250);
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
-		HAL_Delay(500);
+		HAL_Delay(250);
 	}
 }

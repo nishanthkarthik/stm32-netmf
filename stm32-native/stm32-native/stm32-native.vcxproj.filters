@@ -2,26 +2,26 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source files">
-      <UniqueIdentifier>{4e071bde-e1f1-4645-bd86-fe68e67fe693}</UniqueIdentifier>
+      <UniqueIdentifier>{da220355-93fe-4453-9a4e-8ba4861ecafe}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Header files">
-      <UniqueIdentifier>{15e93946-4812-4688-a1d3-d1c9dba2bb43}</UniqueIdentifier>
+      <UniqueIdentifier>{fdfc3838-4c34-49dd-928e-ab29392fa935}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="Resource files">
-      <UniqueIdentifier>{afe8cf79-2026-4a86-81b7-903b055e064f}</UniqueIdentifier>
+      <UniqueIdentifier>{db29ebc8-6834-41af-b27f-e1b08b0b87fb}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
     <Filter Include="Make files">
-      <UniqueIdentifier>{eef23a4f-a622-4c6b-8adc-c3887f594d53}</UniqueIdentifier>
+      <UniqueIdentifier>{54b92b8e-10eb-4531-8f3b-4ca49a23f4ee}</UniqueIdentifier>
       <Extensions>*.mak</Extensions>
     </Filter>
     <Filter Include="Source files\Device-specific files">
-      <UniqueIdentifier>{d7260a0d-7ef1-4619-8e6d-5504668cdd43}</UniqueIdentifier>
+      <UniqueIdentifier>{c52acd77-fc5b-4e40-8f7b-4ffa9ff418bb}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header files\Device-specific files">
-      <UniqueIdentifier>{58c1ea71-44eb-49de-9876-91e4d0ebad2e}</UniqueIdentifier>
+      <UniqueIdentifier>{5b6a6b6c-62dd-43ca-b0f0-997d6aec30fc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -586,4 +586,32 @@ namespace stmnetmf
         /// </summary>
         public const Cpu.Pin GpioNone = Cpu.Pin.GPIO_NONE;
     }
+
+    public static class DiscoveryF4
+    {
+        /// <summary>
+        /// STM32F4Discovery Green LED
+        /// </summary>
+        public const Cpu.Pin GreenLedPin = (Cpu.Pin)60;
+
+        /// <summary>
+        /// STM32F4Discovery Orange LED
+        /// </summary>
+        public const Cpu.Pin OrangeLedPin = (Cpu.Pin)61;
+
+        /// <summary>
+        /// STM32F4Discovery Red LED
+        /// </summary>
+        public const Cpu.Pin RedLedPin = (Cpu.Pin)62;
+
+        /// <summary>
+        /// STM32F4Discovery Blue LED
+        /// </summary>
+        public const Cpu.Pin BlueLedPin = (Cpu.Pin)63;
+
+        /// <summary>
+        /// STM32F4Discovery User Button
+        /// </summary>
+        public const Cpu.Pin UserButton = 0;
+    }
 }

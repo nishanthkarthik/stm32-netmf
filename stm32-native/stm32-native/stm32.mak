@@ -26,6 +26,6 @@ LINUX_PACKAGES +=
 CFLAGS += -mcpu=cortex-m4 -mthumb
 CXXFLAGS += -mcpu=cortex-m4 -mthumb
 ASFLAGS += -mcpu=cortex-m4 -mthumb
-LDFLAGS += -mcpu=cortex-m4 -mthumb -T$(BSP_ROOT)/STM32F4xxxx-HAL/LinkerScripts/STM32F407xG_flash.lds  --specs=nosys.specs
+LDFLAGS += -mcpu=cortex-m4 -mthumb -T$(BSP_ROOT)/STM32F4xxxx-HAL/LinkerScripts/STM32F407xG_flash.lds  
 COMMONFLAGS +=  -mfloat-abi=soft
 

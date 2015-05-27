@@ -7,70 +7,51 @@ namespace stmnetmf
 {
     public class Program
     {
+        static readonly OutputPort RedPort = new OutputPort(DiscoveryF4.RedLedPin, false);
+        static readonly OutputPort BluePort = new OutputPort(DiscoveryF4.BlueLedPin, false);
+        static readonly OutputPort OrangePort = new OutputPort(DiscoveryF4.OrangeLedPin, false);
+        static readonly OutputPort GreenPort = new OutputPort(DiscoveryF4.GreenLedPin, false);
+        private static long _counter;
+
         public static void Main()
         {
-            Thread greenThread = new Thread(BlinkThread.GreenLed);
-            Thread redThread = new Thread(BlinkThread.RedLed);
-            Thread blueThread = new Thread(BlinkThread.BlueLed);
-            Thread orangeThread = new Thread(BlinkThread.OrangeLed);
-            greenThread.Start();
-            redThread.Start();
-            blueThread.Start();
-            orangeThread.Start();
-        }
-    }
-
-    public class BlinkThread
-    {
-        static readonly OutputPort GreenOutputPort = new OutputPort(Pins.GpioPinD12, true);
-        static readonly OutputPort RedOutputPort = new OutputPort(Pins.GpioPinD14, true);
-        static readonly OutputPort BlueOutputPort = new OutputPort(Pins.GpioPinD15, true);
-        static readonly OutputPort OrangeOutputPort = new OutputPort(Pins.GpioPinD13, true);
-
-        public static void GreenLed()
-        {
-            while (true)
-            {
-                GreenOutputPort.Write(true);
-                Thread.Sleep(2000);
-                GreenOutputPort.Write(false);
-                Thread.Sleep(2000);
-            }
+            InterruptPort buttonInterruptPort = new InterruptPort(DiscoveryF4.UserButton, true, Port.ResistorMode.PullDown,
+                Port.InterruptMode.InterruptEdgeHigh);
+            buttonInterruptPort.OnInterrupt += buttonInterruptPort_OnInterrupt;
+            buttonInterruptPort.EnableInterrupt();
+            Thread.Sleep(Timeout.Infinite);
         }
 
-        public static void BlueLed()
+        static void buttonInterruptPort_OnInterrupt(uint data1, uint data2, DateTime time)
         {
-            while (true)
+            switch (_counter % 4)
             {
-                BlueOutputPort.Write(true);
-                Thread.Sleep(1000);
-                BlueOutputPort.Write(false);
-                Thread.Sleep(1000);
+                case 0:
+                    RedPort.Write(true);
+                    BluePort.Write(false);
+                    OrangePort.Write(false);
+                    GreenPort.Write(false);
+                    break;
+                case 1:
+                    RedPort.Write(false);
+                    BluePort.Write(true);
+                    OrangePort.Write(false);
+                    GreenPort.Write(false);
+                    break;
+                case 2:
+                    RedPort.Write(false);
+                    BluePort.Write(false);
+                    OrangePort.Write(false);
+                    GreenPort.Write(true);
+                    break;
+                case 3:
+                    RedPort.Write(false);
+                    BluePort.Write(false);
+                    OrangePort.Write(true);
+                    GreenPort.Write(false);
+                    break;
             }
-
-        }
-
-        public static void RedLed()
-        {
-            while (true)
-            {
-                RedOutputPort.Write(true);
-                Thread.Sleep(500);
-                RedOutputPort.Write(false);
-                Thread.Sleep(500);
-            }
-
-        }
-
-        public static void OrangeLed()
-        {
-            while (true)
-            {
-                OrangeOutputPort.Write(true);
-                Thread.Sleep(250);
-                OrangeOutputPort.Write(false);
-                Thread.Sleep(250);
-            }
+            ++_counter;
         }
     }
 }
